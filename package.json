@@ -18,5 +18,7 @@
         "url": "https://github.com/remorses/play-nextjs12/issues"
     },
     "homepage": "https://github.com/remorses/play-nextjs12#readme",
-    "dependencies": {}
+    "dependencies": {
+        "@changesets/cli": "^2.17.0"
+    }
 }
