@@ -1,6 +1,5 @@
 import { findPagesDir } from 'next/dist/lib/find-pages-dir'
-import * as path from 'path'
-import * as webpack from 'webpack'
+
 import { NextConfig } from 'next'
 
 export interface NextSuperjsonConfig {}
@@ -10,7 +9,7 @@ export function withSuperjson(withSuperjson: NextSuperjsonConfig = {}) {
         return {
             ...nextConfig,
 
-            webpack(config: webpack.Configuration, options) {
+            webpack(config: import('webpack').Configuration, options) {
                 const {} = withSuperjson
                 const { isServer, dev, dir } = options
                 const pagesDir = findPagesDir(dir)
