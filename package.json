@@ -1,0 +1,22 @@
+{
+    "name": "play-nextjs12",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/remorses/play-nextjs12.git"
+    },
+    "keywords": [],
+    "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/remorses/play-nextjs12/issues"
+    },
+    "homepage": "https://github.com/remorses/play-nextjs12#readme",
+    "dependencies": {}
+}

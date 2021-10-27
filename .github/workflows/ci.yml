@@ -1,0 +1,37 @@
+name: Npm Package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      # caching
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      # scripts
+      - run: yarn
+      - run: yarn build
+      - run: yarn test
+      - name: Create Release
+        id: changesets
+        uses: changesets/action@master
+        # with:
+        #   publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
