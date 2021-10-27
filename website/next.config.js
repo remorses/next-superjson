@@ -1,6 +1,5 @@
-import withRpc from 'next-rpc'
-import { withSuperjson } from 'next-superjson'
-console.log({ withSuperjson })
+const withRpc = require('next-rpc')
+const { withSuperjson } = require('next-superjson')
 
 /**@type {import('next').NextConfig} */
 const config = withSuperjson()(
@@ -15,4 +14,4 @@ const config = withSuperjson()(
     }),
 )
 
-export default config
+module.exports = config

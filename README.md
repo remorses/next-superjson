@@ -17,9 +17,9 @@ Add the plugin to your `next.config.js`.
 If you don't have one, create it.
 
 ```js
-const { withSuperjson } = require('next-superjson')()
+const { withSuperjson } = require('next-superjson')
 
-module.exports = withSuperjson({})
+module.exports = withSuperjson()({})
 ```
 
 That's it! Now you're free to use all values and type supported by SuperJSON in your Next.js Components.
