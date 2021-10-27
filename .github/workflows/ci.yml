@@ -16,17 +16,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      # caching
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-
-          restore-keys: |
-            ${{ runner.os }}-npm-
       # scripts
       - run: npm i -g pnpm && pnpm i
       - run: pnpm -- build
-      - run: yarn test
       # - name: Create Release
       #   id: changesets
       #   uses: changesets/action@master
