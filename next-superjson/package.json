@@ -1,7 +1,7 @@
 {
     "name": "next-superjson",
-    "version": "0.0.0",
-    "description": "",
+    "version": "0.0.1",
+    "description": "Automatically transform your Next.js Pages to use SuperJSON, without losing swc support",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
@@ -12,7 +12,9 @@
         "build": "tsc",
         "watch": "tsc -w"
     },
-    "keywords": [],
+    "keywords": [
+        "superjson"
+    ],
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "MIT",
     "dependencies": {
