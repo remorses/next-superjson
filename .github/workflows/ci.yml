@@ -24,8 +24,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
       # scripts
-      - run: yarn
-      - run: yarn build
+      - run: pnpm i
+      - run: pnpm -- build
       - run: yarn test
       # - name: Create Release
       #   id: changesets

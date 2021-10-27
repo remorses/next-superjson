@@ -5,7 +5,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "watch": "ultra -r watch",
+        "build": "ultra --build -r build"
     },
     "repository": {
         "type": "git",
@@ -19,6 +20,7 @@
     },
     "homepage": "https://github.com/remorses/play-nextjs12#readme",
     "dependencies": {
-        "@changesets/cli": "^2.17.0"
+        "@changesets/cli": "^2.17.0",
+        "ultra-runner": "^3.10.5"
     }
 }
