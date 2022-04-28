@@ -1,3 +1,4 @@
 packages:
   - website
   - next-superjson
+  - ssr-caching-app
