@@ -1,4 +1,5 @@
-import { findPagesDir } from 'next/dist/lib/find-pages-dir'
+import fs from 'fs'
+import path from 'path'
 
 import { NextConfig } from 'next'
 
@@ -53,4 +54,25 @@ export function withSuperjson(withSuperjson: NextSuperjsonConfig = {}) {
             },
         }
     }
+}
+
+// taken from https://github.com/vercel/next.js/blob/v12.1.5/packages/next/lib/find-pages-dir.ts
+export function findPagesDir(dir: string): string {
+    // prioritize ./pages over ./src/pages
+    let curDir = path.join(dir, 'pages')
+    if (fs.existsSync(curDir)) return curDir
+
+    curDir = path.join(dir, 'src/pages')
+    if (fs.existsSync(curDir)) return curDir
+
+    // Check one level up the tree to see if the pages directory might be there
+    if (fs.existsSync(path.join(dir, '..', 'pages'))) {
+        throw new Error(
+            'No `pages` directory found. Did you mean to run `next` in the parent (`../`) directory?',
+        )
+    }
+
+    throw new Error(
+        "Couldn't find a `pages` directory. Please create one under the project root",
+    )
 }

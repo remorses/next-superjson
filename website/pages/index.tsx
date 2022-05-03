@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { apiCall } from './api/api'
+// import { apiCall } from './api/api'
 
 export default function Home({ date }) {
-    useEffect(() => {
-        apiCall({})
-    }, [])
+    // useEffect(() => {
+    //     apiCall({})
+    // }, [])
     return (
         <div>
             <p>Hello World</p>
