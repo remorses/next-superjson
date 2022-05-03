@@ -1,13 +1,14 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "^12.1.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  }
+    "private": true,
+    "name": "ssr",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "next": "^12.1.6",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
 }

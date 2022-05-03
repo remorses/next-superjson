@@ -6,6 +6,7 @@
     "main": "index.js",
     "scripts": {
         "watch": "ultra -r watch",
+        "deploy": "changeset && changeset version",
         "build": "ultra --build -r build"
     },
     "repository": {
