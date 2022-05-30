@@ -1,4 +1,4 @@
-name: Npm Package
+name: Ci
 
 on:
   push:
@@ -14,11 +14,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org/
       # scripts
       - run: npm i -g pnpm && pnpm i
-      - run: pnpm -- build
+      - run: pnpm build
       # - name: Create Release
       #   id: changesets
       #   uses: changesets/action@master
