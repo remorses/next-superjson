@@ -29,3 +29,12 @@ That's it! Now you're free to use all values and type supported by SuperJSON in 
 New Nextjs 12 uses `swc` to compile user code by default, adding a custom `.babelrc` file will make Nextjs compile everything using Babel instead (much slower).
 
 This plugin will inject the superjson babel plugin only on files under the `pages` directory so you can keep using swc for all the other files.
+
+
+
+## Sponsors
+
+[**Notaku**](https://notaku.website)
+
+
+[![Notaku](https://preview.notaku.website/github_banner.jpg)](https://notaku.website)
