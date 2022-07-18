@@ -1,5 +1,11 @@
 # next-superjson
 
+## 0.0.4
+
+### Patch Changes
+
+-   Added README to npm
+
 ## 0.0.3
 
 ### Patch Changes
