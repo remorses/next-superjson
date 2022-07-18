@@ -5,6 +5,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
+        "README.md",
         "dist",
         "src"
     ],
@@ -17,6 +18,9 @@
     ],
     "author": "Tommaso De Rossi, morse <beats.by.morse@gmail.com>",
     "license": "MIT",
+    "repository": {
+        "url": "https://github.com/remorses/next-superjson"
+    },
     "dependencies": {
         "@babel/core": "^7.13.15",
         "@babel/plugin-syntax-jsx": "^7.12.13",
