@@ -1,6 +1,6 @@
 ## Getting started
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Use https://github.com/blitz-js/next-superjson-plugin instead if you are not using a `.babelrc` file
 
 Install the library with your package manager of choice, e.g.:
