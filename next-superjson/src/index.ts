@@ -7,6 +7,7 @@ export interface NextSuperjsonConfig {}
 
 export function withSuperjson(withSuperjson: NextSuperjsonConfig = {}) {
     return (nextConfig: NextConfig = {}): NextConfig => {
+        applyTurbopackOptions(nextConfig)
         return {
             ...nextConfig,
 

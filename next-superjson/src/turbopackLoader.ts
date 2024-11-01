@@ -40,6 +40,7 @@ export default async function (
             jsc: {
                 experimental: {
                     plugins: [[require.resolve('next-superjson-plugin'), {}]],
+                    
                 },
                 target: 'esnext',
                 transform: { react: { runtime: 'automatic' } },
