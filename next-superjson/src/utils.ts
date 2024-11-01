@@ -3,14 +3,12 @@ import path from 'path'
 const enabled = !!process.env.DEBUG_ELACCA
 export const logger = {
     log(...args) {
-        enabled && console.log('[elacca]:', ...args)
+        enabled && console.log('[superjson]:', ...args)
     },
     error(...args) {
-        enabled && console.log('[elacca]:', ...args)
+        enabled && console.log('[superjson]:', ...args)
     },
 }
-
-export const elaccaDirective = 'skip ssr'
 
 const filesToSkip = ([] as string[]).concat(
     ...['_document', '_error'].map((name) => [
@@ -21,7 +19,7 @@ const filesToSkip = ([] as string[]).concat(
     ]),
 )
 
-export function shouldBeSkipped({ pagesDir, filePath, program = null as any }) {
+export function shouldBeSkipped({ pagesDir, filePath }) {
     if (!filePath.includes('pages' + path.sep)) {
         return true
     }
@@ -37,14 +35,6 @@ export function shouldBeSkipped({ pagesDir, filePath, program = null as any }) {
         console.log('skipping', abs, 'because outside of pagesDir', pagesDir)
         return true
     }
-    if (!program) {
-        return false
-    }
-    const dir = program.node.directives?.find(
-        (x) => x.value?.value === elaccaDirective,
-    )
-    if (!dir) {
-        return true
-    }
+
     return false
 }
