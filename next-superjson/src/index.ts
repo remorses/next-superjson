@@ -21,26 +21,12 @@ export function withSuperjson(withSuperjson: NextSuperjsonConfig = {}) {
                     test: /\.(tsx|ts|js|mjs|jsx)$/,
                     include: [pagesDir],
                     use: [
-                        options.defaultLoaders.babel,
+                        // options.defaultLoaders.babel,
                         {
-                            loader: 'babel-loader',
+                            loader: require.resolve('./turbopackLoader'),
                             options: {
-                                sourceMaps: dev,
-                                plugins: [
-                                    [
-                                        require.resolve(
-                                            'babel-plugin-superjson-next',
-                                        ),
-                                        {},
-                                    ],
-                                    require.resolve('@babel/plugin-syntax-jsx'),
-                                    [
-                                        require.resolve(
-                                            '@babel/plugin-syntax-typescript',
-                                        ),
-                                        { isTSX: true },
-                                    ],
-                                ],
+                                isServer,
+                                pagesDir,
                             },
                         },
                     ],
@@ -75,4 +61,32 @@ export function findPagesDir(dir: string): string {
     throw new Error(
         "Couldn't find a `pages` directory. Please create one under the project root",
     )
+}
+
+function applyTurbopackOptions(nextConfig: NextConfig): void {
+    nextConfig.experimental ??= {}
+    nextConfig.experimental.turbo ??= {}
+    nextConfig.experimental.turbo.rules ??= {}
+
+    const rules = nextConfig.experimental.turbo.rules
+
+    const pagesDir = findPagesDir(process.cwd())
+    const options = { pagesDir }
+    const glob = '{./src/pages,./pages/}/**/*.{ts,tsx,js,jsx}'
+    rules[glob] ??= {}
+    const globbed: any = rules[glob]
+    globbed.browser ??= {}
+    globbed.browser.loaders ??= []
+    globbed.browser.as = '*.js'
+    globbed.browser.loaders.push({
+        loader: require.resolve('../dist/turbopackLoader'),
+        options: { ...options, isServer: false },
+    })
+    globbed.default ??= {}
+    globbed.default.loaders ??= []
+    globbed.default.as = '*.js'
+    globbed.default.loaders.push({
+        loader: require.resolve('../dist/turbopackLoader'),
+        options: { ...options, isServer: true },
+    })
 }

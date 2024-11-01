@@ -22,15 +22,13 @@
         "url": "https://github.com/remorses/next-superjson"
     },
     "dependencies": {
-        "@babel/core": "^7.13.15",
-        "@babel/plugin-syntax-jsx": "^7.12.13",
-        "@babel/plugin-syntax-typescript": "^7.12.13",
-        "babel-loader": "^8.2.2",
-        "babel-plugin-superjson-next": "^0.4.2"
+        "@swc/core": "1.4",
+        "@swc/types": "^0.1.12",
+        "next-superjson-plugin": "^0.6.3"
     },
     "devDependencies": {
         "@types/webpack": "^5.28.0",
-        "next": "^14.1.4"
+        "next": "^15.0.2"
     },
     "peerDependencies": {
         "next": ">=10"
