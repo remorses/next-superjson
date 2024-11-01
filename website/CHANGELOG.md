@@ -1,5 +1,12 @@
 # website
 
+## 1.0.5
+
+### Patch Changes
+
+-   Updated dependencies [undefined]
+    -   next-superjson@1.0.0
+
 ## 1.0.4
 
 ### Patch Changes

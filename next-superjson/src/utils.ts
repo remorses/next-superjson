@@ -1,4 +1,3 @@
-import { PluginPass } from '@babel/core'
 import path from 'path'
 
 const enabled = !!process.env.DEBUG_ELACCA
@@ -12,20 +11,6 @@ export const logger = {
 }
 
 export const elaccaDirective = 'skip ssr'
-
-export function getFileName(state: PluginPass) {
-    const { filename, cwd } = state
-
-    if (!filename) {
-        return undefined
-    }
-
-    if (cwd && filename.startsWith(cwd)) {
-        return filename.slice(cwd.length + 1)
-    }
-
-    return filename
-}
 
 const filesToSkip = ([] as string[]).concat(
     ...['_document', '_error'].map((name) => [

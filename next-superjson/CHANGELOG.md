@@ -1,5 +1,11 @@
 # next-superjson
 
+## 1.0.0
+
+### Major Changes
+
+-   Use SWC plugin instead of Babel, works with superjson version 2
+
 ## 0.0.4
 
 ### Patch Changes
