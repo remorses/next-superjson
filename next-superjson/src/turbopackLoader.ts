@@ -41,27 +41,27 @@ export default async function (
                 experimental: {
                     plugins: [[require.resolve('next-superjson-plugin'), {}]],
                 },
-
+                target: 'esnext',
+                transform: { react: { runtime: 'automatic' } },
                 parser: {
                     syntax: 'typescript',
-
                     tsx: true,
                 },
-                transform: {
-                    react: {},
-                },
+                // Remove react transform since we don't want to transform React code
             },
         })
         if (process.env.DEBUG_SUPERJSON) {
-            
-            
             // Get relative path from pagesDir
             const relativePath = path.relative(pagesDir, this.resourcePath)
-            const outputPath = path.join(process.cwd(), 'superjson-plugin-outputs', relativePath)
-            
+            const outputPath = path.join(
+                process.cwd(),
+                'superjson-plugin-outputs',
+                relativePath,
+            )
+
             // Ensure directory exists
             fs.mkdirSync(path.dirname(outputPath), { recursive: true })
-            
+
             // Write transformed code to file
             fs.writeFileSync(outputPath, res.code)
         }

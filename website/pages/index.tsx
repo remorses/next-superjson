@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
-// import { apiCall } from './api/api'
 
 export default function Home({ date }) {
-    // useEffect(() => {
-    //     apiCall({})
-    // }, [])
+    useEffect(() => {
+        fetch('/api/api')
+            .then(res => res.json())
+            .catch(err => console.error(err))
+    }, [])
+
     return (
         <div>
             <p>Hello World</p>
