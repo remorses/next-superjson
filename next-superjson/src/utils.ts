@@ -1,6 +1,6 @@
 import path from 'path'
 
-const enabled = !!process.env.DEBUG_ELACCA
+const enabled = !!process.env.DEBUG_SUPERJSON
 export const logger = {
     log(...args) {
         enabled && console.log('[superjson]:', ...args)
