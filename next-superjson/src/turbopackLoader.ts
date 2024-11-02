@@ -40,7 +40,7 @@ export default async function (
             jsc: {
                 experimental: {
                     plugins: [[require.resolve('next-superjson-plugin'), {}]],
-                    
+
                 },
                 target: 'esnext',
                 transform: { react: { runtime: 'automatic' } },
@@ -72,7 +72,7 @@ export default async function (
             JSON.parse(res?.map || 'null') || undefined,
         )
     } catch (e: any) {
-        logger.error(e)
+        console.error(e)
         callback(e)
     }
 }
