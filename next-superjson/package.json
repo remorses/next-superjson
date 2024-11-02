@@ -1,6 +1,6 @@
 {
     "name": "next-superjson",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Automatically transform your Next.js Pages to use SuperJSON, without losing swc support",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -23,7 +23,7 @@
         "url": "https://github.com/remorses/next-superjson"
     },
     "dependencies": {
-        "@swc/core": "1.4",
+        "@swc/core": "1.4.17",
         "@swc/types": "0.1.12",
         "next-superjson-plugin": "0.6.3"
     },

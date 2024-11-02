@@ -1,5 +1,11 @@
 # next-superjson
 
+## 1.0.1
+
+### Patch Changes
+
+-   Freeze version of next-superjson-plugin used
+
 ## 1.0.0
 
 ### Major Changes
