@@ -1,5 +1,35 @@
 # next-superjson
 
+## 1.0.7
+
+### Patch Changes
+
+-   Problem was passing sourcemap to skipped pages for some reason
+
+## 1.0.6
+
+### Patch Changes
+
+-   swc breaks when passing an input sourcemap, skip this step
+
+## 1.0.5
+
+### Patch Changes
+
+-   handle null input map
+
+## 1.0.4
+
+### Patch Changes
+
+-   input sourcemap should be a string
+
+## 1.0.3
+
+### Patch Changes
+
+-   More logs
+
 ## 1.0.2
 
 ### Patch Changes

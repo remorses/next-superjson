@@ -10,8 +10,8 @@ export default async function (
     source: string,
     map: any,
 ) {
-    if (typeof map === 'string') {
-        map = JSON.parse(map)
+    if (map && typeof map === 'object') {
+        map = JSON.stringify(map)
     }
     // eslint-disable-next-line no-console
     // console.log(JSON.stringify(this, null, 2))
@@ -23,7 +23,7 @@ export default async function (
 
         // console.log('isServer', isServer)
         if (shouldBeSkipped({ filePath: this.resourcePath || '', pagesDir })) {
-            callback(null, source, map)
+            callback(null, source, )
             return
         }
 
@@ -31,7 +31,8 @@ export default async function (
             // Some options cannot be specified in .swcrc
             filename: this.resourcePath,
             sourceMaps: true,
-            inputSourceMap: map,
+            // TODO swc is completely broken when passing input source map
+            inputSourceMap: map || undefined,
             // Input files are treated as module by default.
             // isModule: false,
             minify: false,
@@ -40,7 +41,6 @@ export default async function (
             jsc: {
                 experimental: {
                     plugins: [[require.resolve('next-superjson-plugin'), {}]],
-
                 },
                 target: 'esnext',
                 transform: { react: { runtime: 'automatic' } },
@@ -66,13 +66,14 @@ export default async function (
             // Write transformed code to file
             fs.writeFileSync(outputPath, res.code)
         }
+        let outMap = res?.map ? JSON.parse(res?.map) : undefined
         callback(
             null,
             res?.code || '',
-            JSON.parse(res?.map || 'null') || undefined,
+            outMap || undefined,
         )
     } catch (e: any) {
-        console.error(e)
+        console.error('[next-superjson]', e.stack || e)
         callback(e)
     }
 }
