@@ -1,5 +1,11 @@
 # next-superjson
 
+## 1.0.2
+
+### Patch Changes
+
+-   Freeze versinos of swc
+
 ## 1.0.1
 
 ### Patch Changes
