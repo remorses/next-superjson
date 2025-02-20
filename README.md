@@ -45,4 +45,4 @@ This plugin instead freezes the version of `@swc/core` to one that is guaranteed
 
 [**Notaku**](https://notaku.website)
 
-[![Notaku](https://preview.notaku.website/github_banner.jpg)](https://notaku.website)
+[![Notaku](https://notaku.so/github_banner.jpg)](https://notaku.so)
