@@ -1,5 +1,11 @@
 # next-superjson
 
+## 1.0.8
+
+### Patch Changes
+
+-   Use root-level `turbopack` config instead of `experimental.turbo`
+
 ## 1.0.7
 
 ### Patch Changes

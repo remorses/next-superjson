@@ -65,11 +65,10 @@ export function findPagesDir(dir: string): string {
 }
 
 function applyTurbopackOptions(nextConfig: NextConfig): void {
-    nextConfig.experimental ??= {}
-    nextConfig.experimental.turbo ??= {}
-    nextConfig.experimental.turbo.rules ??= {}
+    nextConfig.turbopack ??= {}
+    nextConfig.turbopack.rules ??= {}
 
-    const rules = nextConfig.experimental.turbo.rules
+    const rules = nextConfig.turbopack.rules
 
     const pagesDir = findPagesDir(process.cwd())
     const options = { pagesDir }
