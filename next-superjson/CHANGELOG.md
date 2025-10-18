@@ -1,5 +1,12 @@
 # next-superjson
 
+## 2.0.0
+
+### Major Changes
+
+-   Use `condition` syntax for Turbopack rules instead of `browser`/`default` properties (Next.js 16+ compatibility)
+-   Require Next.js 16 or higher (use version 1.x for Next.js 15)
+
 ## 1.0.8
 
 ### Patch Changes

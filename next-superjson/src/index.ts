@@ -68,25 +68,37 @@ function applyTurbopackOptions(nextConfig: NextConfig): void {
     nextConfig.turbopack ??= {}
     nextConfig.turbopack.rules ??= {}
 
-    const rules = nextConfig.turbopack.rules
+    const rules = nextConfig.turbopack.rules as any
 
     const pagesDir = findPagesDir(process.cwd())
     const options = { pagesDir }
     const glob = '{./src/pages,./pages/}/**/*.{ts,tsx,js,jsx}'
-    rules[glob] ??= {}
-    const globbed: any = rules[glob]
-    globbed.browser ??= {}
-    globbed.browser.loaders ??= []
-    globbed.browser.as = '*.js'
-    globbed.browser.loaders.push({
-        loader: require.resolve('../dist/turbopackLoader'),
-        options: { ...options, isServer: false },
-    })
-    globbed.default ??= {}
-    globbed.default.loaders ??= []
-    globbed.default.as = '*.js'
-    globbed.default.loaders.push({
-        loader: require.resolve('../dist/turbopackLoader'),
-        options: { ...options, isServer: true },
-    })
+    
+    const existingRules = rules[glob]
+    const newRules = [
+        {
+            condition: 'browser',
+            loaders: [{
+                loader: require.resolve('../dist/turbopackLoader'),
+                options: { ...options, isServer: false },
+            }],
+            as: '*.js',
+        },
+        {
+            condition: { not: 'browser' },
+            loaders: [{
+                loader: require.resolve('../dist/turbopackLoader'),
+                options: { ...options, isServer: true },
+            }],
+            as: '*.js',
+        },
+    ]
+    
+    if (Array.isArray(existingRules)) {
+        rules[glob] = [...existingRules, ...newRules]
+    } else if (existingRules) {
+        rules[glob] = [existingRules, ...newRules]
+    } else {
+        rules[glob] = newRules
+    }
 }

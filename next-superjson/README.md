@@ -1,5 +1,11 @@
 ## Getting started
 
+> [!IMPORTANT]
+> **Version 2.x** requires **Next.js 16+**. If you're using Next.js 15, install version 1.x instead:
+> ```
+> npm install next-superjson@1
+> ```
+
 Install the library with your package manager of choice, e.g.:
 
 ```
